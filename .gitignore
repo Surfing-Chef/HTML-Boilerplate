@@ -5,32 +5,26 @@
 #
 
 # Windows Thumbnail cache files
-###############################
 Thumbs.db
 ehthumbs.db
 ehthumbs_vista.db
 
 # Windows Folder config file
-############################
 Desktop.ini
 
 # Windows Recycle Bin used on file shares
-#########################################
 $RECYCLE.BIN/
 
 # Windows Installer files
-#########################
 *.cab
 *.msi
 *.msm
 *.msp
 
 # Windows shortcuts
-###################
 *.lnk
 
 # Packages
-############
 # It's better to unpack these files and commit the raw source because
 # git has its own built in compression methods.
 *.7z
@@ -45,12 +39,10 @@ $RECYCLE.BIN/
 *.cab
 
 # Packing-only formats
-########################
 *.iso
 *.tar
 
 # Package management formats
-##############################
 *.dmg
 *.xpi
 *.gem
@@ -62,14 +54,12 @@ $RECYCLE.BIN/
 *.msp
 
 # Logs and databases
-######################
 *.log
 *.sql
 *.sqlite
 *sky.json
 
 # Build Systems
-#################
 node_modules/
 bower_components/
 .sass-cache
@@ -79,6 +69,9 @@ dist/
 .npm-debug.log
 tmp
 
+# Auto Generated Stylesheets
+*style.css
+*style.min.css
+
 # Ruby
-########
 Gemfile.lock
