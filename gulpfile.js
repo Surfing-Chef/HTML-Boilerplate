@@ -31,7 +31,7 @@ gulp.task('sassDev', function() {
   .pipe(sourcemaps.init())
     .pipe(sass({sourceComments: 'map', sourceMap: 'sass', outputStyle: 'expanded'}))
     .pipe(autoprefixer('last 2 versions'))
-  .pipe(sourcemaps.write())
+  .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest('css/'))
   .pipe(browserSync.stream());
 });
@@ -43,7 +43,7 @@ gulp.task('sassDep', function() {
   .pipe(sourcemaps.init())
     .pipe(sass({sourceComments: 'map', sourceMap: 'sass', outputStyle: 'compressed'}))
     .pipe(autoprefixer('last 2 versions'))
-  .pipe(sourcemaps.write())
+  .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest('./'))
   .pipe(browserSync.stream());
 });
