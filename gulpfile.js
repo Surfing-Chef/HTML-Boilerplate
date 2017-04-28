@@ -79,7 +79,12 @@ gulp.task('build:cleanfolder', function(){
 gulp.task('build:copy', ['build:cleanfolder'], function(){
   return gulp.src([
                   './**/*/',
-                  '!./src/images/**/*',
+                  '.htaccess',
+                  '!node_modules',
+                  '!./css/**/*.txt',
+                  '!./css/**/*.map',
+                  '!./css/style.css',
+                  '!./img/**/*',
                   '!./build'
                 ])
   .pipe(gulp.dest('./build/'));
@@ -87,9 +92,9 @@ gulp.task('build:copy', ['build:cleanfolder'], function(){
 
 // minimize images in deployment directory
 gulp.task('build:imgMin', ['build:copy'], function(){
-    return gulp.src('./src/images/**/*')
+    return gulp.src('./img/**/*')
         .pipe(imagemin())
-        .pipe(gulp.dest('./build/src/images'));
+        .pipe(gulp.dest('./build/img'));
 });
 
 // remove unwanted build files and directories
@@ -97,11 +102,10 @@ gulp.task('build:remove', ['build:imgMin'], function(done){
   return del([  // list files and directories to delete
     './build/gulpfile.js',
     './build/.git*',
-    './build/node_modules',
-    './build/README.md',
     './build/scss/',
-    './build/css/',
-    './build/css/*dev*',
+    './build/doc/',
+    './build/README.md',
+    './build/package.json',
   ], done);
 });
 
