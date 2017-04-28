@@ -80,7 +80,6 @@ gulp.task('build:copy', ['build:cleanfolder'], function(){
   return gulp.src([
                   './**/*/',
                   '.htaccess',
-                  '!node_modules',
                   '!./css/**/*.txt',
                   '!./css/**/*.map',
                   '!./css/style.css',
@@ -102,6 +101,7 @@ gulp.task('build:remove', ['build:imgMin'], function(done){
   return del([  // list files and directories to delete
     './build/gulpfile.js',
     './build/.git*',
+    './build/node_modules',
     './build/scss/',
     './build/doc/',
     './build/README.md',
