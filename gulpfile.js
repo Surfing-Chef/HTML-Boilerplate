@@ -15,7 +15,7 @@ var gulp        = require('gulp'),
 //////// Tasks used in development environment ////////
 // Scripts Task - tasks related to js
 gulp.task('scripts', function(){
-  gulp.src(['src/js/**/*.js', '!src/js/**/*min.js'])
+  gulp.src(['js/**/*.js', '!src/js/**/*min.js'])
   .pipe(plumber())
   .pipe(concat('script.min.js'))
   .pipe(gulp.dest('src/js'))
@@ -26,19 +26,19 @@ gulp.task('scripts', function(){
 
 // Sass Task - development css - nested/readable/mapped
 gulp.task('sassDev', function() {
-  gulp.src('src/scss/**/*.scss')
+  gulp.src('scss/**/*.scss')
   .pipe(plumber())
   .pipe(sourcemaps.init())
     .pipe(sass({sourceComments: 'map', sourceMap: 'sass', outputStyle: 'expanded'}))
     .pipe(autoprefixer('last 2 versions'))
   .pipe(sourcemaps.write())
-  .pipe(gulp.dest('src/css/'))
+  .pipe(gulp.dest('css/'))
   .pipe(browserSync.stream());
 });
 
 // Sass Task - deployment css - nested/readable/mapped
 gulp.task('sassDep', function() {
-  gulp.src('src/scss/**/*.scss')
+  gulp.src('scss/**/*.scss')
   .pipe(plumber())
   .pipe(sourcemaps.init())
     .pipe(sass({sourceComments: 'map', sourceMap: 'sass', outputStyle: 'compressed'}))
@@ -55,9 +55,9 @@ gulp.task('serve', function(){
     proxy   : "http://localhost/HTML-Boilerplate"
   });
 
-  gulp.watch('src/js/**/*.js', ['scripts']);
-  gulp.watch('src/scss/**/*.scss', ['sassDev']);
-  gulp.watch('src/scss/**/*.scss', ['sassDep']);
+  gulp.watch('js/**/*.js', ['scripts']);
+  gulp.watch('scss/**/*.scss', ['sassDev']);
+  gulp.watch('scss/**/*.scss', ['sassDep']);
   gulp.watch('**/*.html').on('change', browserSync.reload);
   gulp.watch('**/*.php').on('change', browserSync.reload);
 });
