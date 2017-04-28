@@ -44,6 +44,7 @@ gulp.task('sassDep', function() {
     .pipe(sass({sourceComments: 'map', sourceMap: 'sass', outputStyle: 'compressed'}))
     .pipe(autoprefixer('last 2 versions'))
   .pipe(sourcemaps.write('./'))
+  .pipe(rename('css/style.min.css'))
   .pipe(gulp.dest('./'))
   .pipe(browserSync.stream());
 });
